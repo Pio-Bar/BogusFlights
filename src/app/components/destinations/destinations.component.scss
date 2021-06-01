@@ -1,0 +1,70 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+mat- {
+  &form-field {
+    padding-top: 1em;
+    font-size: 1.5em;
+    width: calc(100% / 3);
+  }
+}
+.main-photo {
+  img {
+    display: block;
+    width: 100vw;
+    height: 360px;
+    object-fit: cover;
+    margin: 0;
+    filter: brightness(75%) saturate(140%);
+  }
+  h1 {
+    z-index: 100;
+    color: #fff;
+    text-shadow: 2px 2px 40px #000, 2px 2px 20px #000;
+    font-weight: 500;
+    font-size: 4rem;
+    position: absolute;
+    top: 8rem;
+    left: 10%;
+    padding-right: 10%;
+  }
+  h2 {
+    z-index: 100;
+    color: #fff;
+    text-shadow: 2px 2px 40px #000, 2px 2px 20px #000;
+    font-weight: 400;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 11.5rem;
+    left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-photo {
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      top: none;
+      left: none;
+    }
+    h2 {
+      font-size: 1.5rem;
+      top: 11rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .mat-form-field {
+    width: 100%;
+  }
+  .main-photo {
+    h2 {
+      top: 14rem;
+    }
+  }
+}

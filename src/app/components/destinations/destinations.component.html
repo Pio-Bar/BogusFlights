@@ -1,0 +1,49 @@
+<div class="main-photo">
+  <h1>Travel with Bogus Flights</h1>
+  <h2>and enjoy the cheapest one-way tickets</h2>
+  <img src="../../../assets/terminal.jpg" alt="terminal" />
+</div>
+<div class="container">
+  <form>
+    <mat-form-field>
+      <mat-label>Departure airport</mat-label>
+      <mat-select color="primary">
+        <mat-option *ngFor="let airport of airports" [value]="airport.code">
+          {{ airport.city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Arrival airport</mat-label>
+      <mat-select color="primary">
+        <mat-option *ngFor="let airport of airports" [value]="airport.code">
+          {{ airport.city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select a class</mat-label>
+      <mat-select color="primary">
+        <mat-option value="standard"> Standard </mat-option>
+        <mat-option value="premium"> Premium </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Number of tickets</mat-label>
+      <mat-select color="primary">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">4</mat-option>
+        <mat-option value="4">5</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button>Confirm!</button>
+  </form>
+</div>
