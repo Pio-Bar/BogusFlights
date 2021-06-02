@@ -4,46 +4,79 @@
   <img src="../../../assets/terminal.jpg" alt="terminal" />
 </div>
 <div class="container">
-  <form>
+  <form (ngSubmit)="sendData()" #myForm="ngForm">
     <mat-form-field>
       <mat-label>Departure airport</mat-label>
-      <mat-select color="primary">
+      <mat-select
+        [(ngModel)]="departure"
+        color="primary"
+        name="departure"
+        required
+      >
         <mat-option *ngFor="let airport of airports" [value]="airport.code">
           {{ airport.city }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a city!</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Arrival airport</mat-label>
-      <mat-select color="primary">
+      <mat-select [(ngModel)]="arrival" color="primary" name="arrival" required>
         <mat-option *ngFor="let airport of airports" [value]="airport.code">
           {{ airport.city }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a city!</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" />
+      <input
+        [(ngModel)]="date"
+        matInput
+        [matDatepicker]="picker"
+        name="date"
+        required
+        min="{{ today }}"
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a proper date!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Select a class</mat-label>
-      <mat-select color="primary">
+      <mat-select [(ngModel)]="class" color="primary" name="class" required>
         <mat-option value="standard"> Standard </mat-option>
         <mat-option value="premium"> Premium </mat-option>
       </mat-select>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please choose a class!</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Number of tickets</mat-label>
-      <mat-select color="primary">
+      <mat-select [(ngModel)]="tickets" color="primary" name="tickets">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
-        <mat-option value="3">4</mat-option>
-        <mat-option value="4">5</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
       </mat-select>
     </mat-form-field>
-    <button>Confirm!</button>
+    <button
+      type="submit"
+      [routerLink]="myForm.form.valid ? 'display' : ''"
+      (click)="sendData()"
+      mat-button
+      color="accent"
+    >
+      Confirm!
+    </button>
   </form>
 </div>

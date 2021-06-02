@@ -43,6 +43,20 @@ mat- {
     padding-right: 10%;
   }
 }
+form {
+  button {
+    background-color: #fff;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #757575;
+    border-radius: 0;
+    border-bottom: 1px solid #757575c4;
+    width: 33.33%;
+    padding: 0;
+    text-align: left;
+    top: 1.5px;
+  }
+}
 
 @media (max-width: 900px) {
   .main-photo {
@@ -59,7 +73,8 @@ mat- {
   }
 }
 @media (max-width: 600px) {
-  .mat-form-field {
+  .mat-form-field,
+  form button {
     width: 100%;
   }
   .main-photo {
