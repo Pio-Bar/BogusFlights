@@ -1,0 +1,73 @@
+<div>
+  <h1 *ngIf="!showRegistration" mat-dialog-title>Log-in</h1>
+  <h1 *ngIf="showRegistration" mat-dialog-title>Register</h1>
+  <p *ngIf="!showRegistration">Welcome back, please log-in to continue.</p>
+  <p *ngIf="showRegistration">Welcome, create a new account to continue.</p>
+</div>
+<div mat-dialog-content></div>
+<mat-form-field *ngIf="showRegistration">
+  <mat-label>Enter your first name</mat-label>
+  <input matInput type="text" />
+  <button mat-icon-button matSuffix>
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field *ngIf="showRegistration">
+  <mat-label>Enter your last name</mat-label>
+  <input matInput type="text" />
+  <button mat-icon-button matSuffix>
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Enter your E-mail</mat-label>
+  <input matInput type="email" />
+  <button mat-icon-button matSuffix>
+    <mat-icon>email</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Enter your password</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" />
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="hide = !hide"
+    [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="hide"
+  >
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field *ngIf="showRegistration">
+  <mat-label>Confirm your password</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" />
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="hide = !hide"
+    [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="hide"
+  >
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+</mat-form-field>
+
+<p *ngIf="!showRegistration">
+  Are you a new user? <a (click)="toggleRegistration()">Register here.</a>
+</p>
+<p *ngIf="showRegistration">
+  Already a user? <a (click)="toggleRegistration()">Log-in here.</a>
+</p>
+<div mat-dialog-actions>
+  <button *ngIf="!showRegistration" mat-raised-button color="primary">
+    Log-in
+  </button>
+  <button *ngIf="showRegistration" mat-raised-button color="primary">
+    Register
+  </button>
+</div>

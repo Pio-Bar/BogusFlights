@@ -1,0 +1,23 @@
+mat-form-field {
+  display: block;
+  width: 100%px;
+  font-size: 18px;
+}
+div:first-of-type {
+  text-align: center;
+  padding: 1em;
+  font-size: 1.5em;
+  h1 {
+    font-size: 2em;
+  }
+}
+div {
+  button {
+    margin: 0px 18px 18px auto;
+    font-size: 1.2em;
+  }
+}
+a {
+  cursor: pointer;
+  color: #303f9f;
+}

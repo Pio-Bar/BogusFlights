@@ -12,6 +12,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button'; 
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { DisplayComponent } from './components/display/display.component';
-import { FormStyle } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { DialogLogin } from './components/login/login.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { FormStyle } from '@angular/common';
     NavBarComponent,
     DestinationsComponent,
     DisplayComponent,
+    LoginComponent,
+    DialogLogin,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { FormStyle } from '@angular/common';
     MatIconModule,
     MatSliderModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [
     MatDatepickerModule,
