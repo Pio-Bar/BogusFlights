@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FlightDataService } from '../../services/flight-data.service'
-import {FormControl, Validators} from '@angular/forms';
+import { UserDataService } from '../../services/user-data.service'
+import { FormControl, Validators } from '@angular/forms';
+import { LoginComponent } from '../login/login.component'
 
 @Component({
   selector: 'app-destinations',
@@ -8,9 +10,9 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./destinations.component.scss']
 })
 export class DestinationsComponent implements OnInit {
-
   control = new FormControl('', Validators.required);
   today = new Date().toISOString().split('T')[0];
+  routeSeats = ''
 
   departure = '';
   arrival = '';
@@ -25,8 +27,12 @@ export class DestinationsComponent implements OnInit {
     {code: 'LHR', city:'London'},
   ]
 
-  constructor(public flightData: FlightDataService) { }
+  constructor(
+    public flightData: FlightDataService,
+    public userData: UserDataService,
+    ) { }
 
+  //Sends data about flight to service
   sendData(){
     this.flightData.flight.departure = this.departure
     this.flightData.flight.arrival = this.arrival
@@ -34,8 +40,19 @@ export class DestinationsComponent implements OnInit {
     this.flightData.flight.date = this.date
     this.flightData.flight.tickets = this.tickets
   }
-  validateForm(){
-    return !this.control.hasError('required')
+
+  @ViewChild(LoginComponent)
+  private login!: LoginComponent
+
+  // Checks if user is logged in if not opens popup
+  isUserLoggedIn(){
+    console.log(this.userData.userIsLoggedIn)
+    if(!this.userData.userIsLoggedIn){
+    this.login.openDialog()
+    } else {
+      this.sendData()
+      this.routeSeats = 'display'
+    }
   }
 
   ngOnInit(): void {

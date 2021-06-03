@@ -4,7 +4,7 @@
   <img src="../../../assets/terminal.jpg" alt="terminal" />
 </div>
 <div class="container">
-  <form (ngSubmit)="sendData()" #flightForm="ngForm">
+  <form #flightForm="ngForm">
     <mat-form-field>
       <mat-label>Departure airport</mat-label>
       <mat-select
@@ -71,8 +71,8 @@
     </mat-form-field>
     <button
       type="submit"
-      [routerLink]="flightForm.form.valid ? 'display' : ''"
-      (click)="sendData()"
+      [routerLink]="flightForm.form.valid ? routeSeats : ''"
+      (click)="isUserLoggedIn()"
       mat-button
       color="accent"
     >
