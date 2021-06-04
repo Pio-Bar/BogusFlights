@@ -3,6 +3,7 @@ import { FlightDataService } from '../../services/flight-data.service'
 import { UserDataService } from '../../services/user-data.service'
 import { FormControl, Validators } from '@angular/forms';
 import { LoginComponent } from '../login/login.component'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-destinations',
@@ -30,6 +31,7 @@ export class DestinationsComponent implements OnInit {
   constructor(
     public flightData: FlightDataService,
     public userData: UserDataService,
+    private router: Router,
     ) { }
 
   //Sends data about flight to service
@@ -51,7 +53,7 @@ export class DestinationsComponent implements OnInit {
     this.login.openDialog()
     } else {
       this.sendData()
-      this.routeSeats = 'display'
+      this.router.navigate(['/display']);
     }
   }
 

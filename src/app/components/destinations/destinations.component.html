@@ -69,13 +69,7 @@
         <mat-option value="5">5</mat-option>
       </mat-select>
     </mat-form-field>
-    <button
-      type="submit"
-      [routerLink]="flightForm.form.valid ? routeSeats : ''"
-      (click)="isUserLoggedIn()"
-      mat-button
-      color="accent"
-    >
+    <button type="submit" (click)="isUserLoggedIn()" mat-button color="accent">
       Confirm!
     </button>
   </form>

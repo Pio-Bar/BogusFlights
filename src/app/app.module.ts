@@ -52,6 +52,7 @@ import { DialogLogin } from './components/login/login.component'
   providers: [
     MatDatepickerModule,
     MatNativeDateModule,
+    LoginComponent,
   ],
   bootstrap: [AppComponent]
 })

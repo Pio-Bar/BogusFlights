@@ -5,7 +5,7 @@
   <p *ngIf="showRegistration">Welcome, create a new account to continue.</p>
 </div>
 <div mat-dialog-content>
-  <form #userForm="ngForm">
+  <form #userForm="ngForm" (keydown.enter)="logIn()" id="userForm">
     <mat-form-field *ngIf="showRegistration">
       <mat-label>Enter your first name</mat-label>
       <input
@@ -13,26 +13,49 @@
         matInput
         type="text"
         name="firstName"
+        required
       />
-      <button mat-icon-button matSuffix>
+      <button mat-icon-button matSuffix tabindex="-1">
         <mat-icon>person</mat-icon>
       </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter your name!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field *ngIf="showRegistration">
       <mat-label>Enter your last name</mat-label>
-      <input [(ngModel)]="lastNameInput" matInput type="text" name="lastName" />
-      <button mat-icon-button matSuffix>
+      <input
+        [(ngModel)]="lastNameInput"
+        matInput
+        type="text"
+        name="lastName"
+        required
+      />
+      <button mat-icon-button matSuffix tabindex="-1">
         <mat-icon>person</mat-icon>
       </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter your last name!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Enter your E-mail</mat-label>
-      <input [(ngModel)]="emailInput" matInput type="email" name="email" />
-      <button mat-icon-button matSuffix>
+      <input
+        [(ngModel)]="emailInput"
+        matInput
+        type="email"
+        name="email"
+        required
+        email
+      />
+      <button mat-icon-button matSuffix tabindex="-1">
         <mat-icon>email</mat-icon>
       </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter a valid email!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field>
@@ -42,6 +65,9 @@
         matInput
         [type]="hide ? 'password' : 'text'"
         name="password"
+        required
+        minlength="6"
+        maxlength="16"
       />
       <button
         mat-icon-button
@@ -52,6 +78,9 @@
       >
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please enter a valid password!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field *ngIf="showRegistration">
@@ -61,24 +90,27 @@
         matInput
         [type]="hide ? 'password' : 'text'"
         name="confirmPassword"
+        required
+        pattern="{{passwordInput}}"
       />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
+      <button mat-icon-button matSuffix (click)="hide = !hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="control.hasError('required')"
+        >Please confirm your password!</mat-error
+      >
     </mat-form-field>
   </form>
 
+  <p class="alert" *ngIf="wrongPassword">Invalid email or password!</p>
+
   <p *ngIf="!showRegistration">
-    Are you a new user? <a (click)="toggleRegistration()">Register here.</a>
+    Are you a new user?
+    <a (click)="toggleRegistration(); userForm.resetForm()">Register here.</a>
   </p>
   <p *ngIf="showRegistration">
-    Already a user? <a (click)="toggleRegistration()">Log-in here.</a>
+    Already a user?
+    <a (click)="toggleRegistration(); userForm.resetForm()">Log-in here.</a>
   </p>
 </div>
 <div mat-dialog-actions>
@@ -87,10 +119,19 @@
     mat-raised-button
     color="primary"
     (click)="logIn()"
+    type="submit"
+    form="userForm"
   >
     Log-in
   </button>
-  <button *ngIf="showRegistration" mat-raised-button color="primary">
+  <button
+    *ngIf="showRegistration"
+    mat-raised-button
+    color="primary"
+    (click)="userForm.form.valid ? register() : ''"
+    type="submit"
+    form="userForm"
+  >
     Register
   </button>
 </div>
