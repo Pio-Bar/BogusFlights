@@ -5,11 +5,27 @@ import { Injectable } from '@angular/core';
 })
 export class FlightDataService {
   flight = {
-    departure: '',
-    arrival: '',
+    departure: {code: '', city:'', country: '', region: ''},
+    arrival: {code: '', city:'', country: '', region: ''},
+    distance: 'local',
     date: '',
     class: '',
     tickets: 1,
+    seats: [],
+    luggage: {cabin: false, checkInSmall: false, checkInBig: false,},
+    additions: {priority: false, VIP: false, instantCheckIn: false,},
+  }
+
+  calculateDistance(){
+    if(this.flight.departure.region === this.flight.arrival.region){
+      if(this.flight.departure.country === this.flight.arrival.country){
+        this.flight.distance = 'local'
+        return
+      }
+      this.flight.distance = 'long'
+      return
+    }
+    this.flight.distance = 'continental'
   }
 
   constructor() { }

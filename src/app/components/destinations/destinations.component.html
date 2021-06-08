@@ -12,10 +12,11 @@
         color="primary"
         name="departure"
         required
-      >
-        <mat-option *ngFor="let airport of airports" [value]="airport.code">
-          {{ airport.city }}
-        </mat-option>
+        ><div *ngFor="let airport of airports">
+          <mat-option [value]="airport" *ngIf="!(airport === arrival)">
+            {{ airport.city }}
+          </mat-option>
+        </div>
       </mat-select>
       <mat-error *ngIf="control.hasError('required')"
         >Please choose a city!</mat-error
@@ -24,9 +25,11 @@
     <mat-form-field>
       <mat-label>Arrival airport</mat-label>
       <mat-select [(ngModel)]="arrival" color="primary" name="arrival" required>
-        <mat-option *ngFor="let airport of airports" [value]="airport.code">
-          {{ airport.city }}
-        </mat-option>
+        <div *ngFor="let airport of airports">
+          <mat-option *ngIf="!(airport === departure)" [value]="airport">
+            {{ airport.city }}
+          </mat-option>
+        </div>
       </mat-select>
       <mat-error *ngIf="control.hasError('required')"
         >Please choose a city!</mat-error
@@ -54,6 +57,7 @@
       <mat-select [(ngModel)]="class" color="primary" name="class" required>
         <mat-option value="standard"> Standard </mat-option>
         <mat-option value="premium"> Premium </mat-option>
+        <mat-option value="business"> Business </mat-option>
       </mat-select>
       <mat-error *ngIf="control.hasError('required')"
         >Please choose a class!</mat-error
@@ -69,7 +73,12 @@
         <mat-option value="5">5</mat-option>
       </mat-select>
     </mat-form-field>
-    <button type="submit" (click)="isUserLoggedIn()" mat-button color="accent">
+    <button
+      type="submit"
+      (click)="flightForm.valid ? isUserLoggedIn() : ''"
+      mat-button
+      color="accent"
+    >
       Confirm!
     </button>
   </form>

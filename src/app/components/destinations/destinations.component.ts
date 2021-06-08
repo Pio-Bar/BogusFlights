@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { airportsDB } from './airportsDB'
 import { FlightDataService } from '../../services/flight-data.service'
 import { UserDataService } from '../../services/user-data.service'
 import { FormControl, Validators } from '@angular/forms';
@@ -13,20 +14,15 @@ import { Router } from '@angular/router';
 export class DestinationsComponent implements OnInit {
   control = new FormControl('', Validators.required);
   today = new Date().toISOString().split('T')[0];
-  routeSeats = ''
+  isDuplicate = false;
+  routeSeats = '';
+  airports = airportsDB;
 
-  departure = '';
-  arrival = '';
+  departure:any;
+  arrival:any;
   class = '';
   date = '';
   tickets = 1;
-
-  airports = [
-    {code: 'LAX', city:'Los Angeles'},
-    {code: 'DXB', city:'Dubai'},
-    {code: 'HND', city:'Tokyo'},
-    {code: 'LHR', city:'London'},
-  ]
 
   constructor(
     public flightData: FlightDataService,
@@ -41,6 +37,7 @@ export class DestinationsComponent implements OnInit {
     this.flightData.flight.class = this.class
     this.flightData.flight.date = this.date
     this.flightData.flight.tickets = this.tickets
+    this.flightData.calculateDistance()
   }
 
   @ViewChild(LoginComponent)
@@ -53,7 +50,7 @@ export class DestinationsComponent implements OnInit {
     this.login.openDialog()
     } else {
       this.sendData()
-      this.router.navigate(['/display']);
+      this.router.navigate(['/seating']);
     }
   }
 
