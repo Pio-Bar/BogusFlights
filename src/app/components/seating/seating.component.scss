@@ -61,6 +61,15 @@ section {
           margin-right: 70px;
         }
       }
+      .selected {
+        background-color: lightblue;
+        &::after {
+          background-color: lightblue;
+        }
+        &::before {
+          background-color: lightblue;
+        }
+      }
     }
   }
 }

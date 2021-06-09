@@ -11,7 +11,7 @@ export class FlightDataService {
     date: '',
     class: '',
     tickets: 1,
-    seats: [],
+    seats: Array(),
     luggage: {cabin: false, checkInSmall: false, checkInBig: false,},
     additions: {priority: false, VIP: false, instantCheckIn: false,},
   }

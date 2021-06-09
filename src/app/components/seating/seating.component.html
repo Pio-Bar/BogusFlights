@@ -1,13 +1,41 @@
 <div class="container">
   <section>
-    <app-details></app-details>
+    <app-details (toggleSeatEvent)="toggleSeat($event)"></app-details>
   </section>
   <div class="seats">
-    <div class="row">
-      <button mat-button class="seat">A</button>
-      <button mat-button class="seat">B</button>
-      <button mat-button class="seat">C</button>
-      <button mat-button class="seat">D</button>
+    <div *ngFor="let row of numOfRows; index as i" class="row">
+      <button
+        mat-button
+        (click)="toggleSeat($event)"
+        id="{{ i + 1 }}A"
+        [class]="'seat'"
+      >
+        {{ i + 1 }}A
+      </button>
+      <button
+        mat-button
+        (click)="toggleSeat($event)"
+        id="{{ i + 1 }}B"
+        class="seat"
+      >
+        {{ i + 1 }}B
+      </button>
+      <button
+        mat-button
+        (click)="toggleSeat($event)"
+        id="{{ i + 1 }}C"
+        class="seat"
+      >
+        {{ i + 1 }}C
+      </button>
+      <button
+        mat-button
+        (click)="toggleSeat($event)"
+        id="{{ i + 1 }}D"
+        class="seat"
+      >
+        {{ i + 1 }}D
+      </button>
     </div>
   </div>
 </div>

@@ -65,11 +65,9 @@
     </h3>
     <section>
       <mat-chip-list>
-        <mat-chip>01A</mat-chip>
-        <mat-chip>11B</mat-chip>
-        <mat-chip>21C</mat-chip>
-        <mat-chip>32D</mat-chip>
-        <mat-chip>21A</mat-chip>
+        <mat-chip (click)="removeSeat($event)" *ngFor="let seat of seats">
+          {{ seat }}</mat-chip
+        >
       </mat-chip-list>
     </section>
     <button mat-raised-button color="primary">Confirm</button>

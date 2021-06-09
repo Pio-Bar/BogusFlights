@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FlightDataService } from '../../services/flight-data.service'
 
 @Component({
@@ -7,19 +7,14 @@ import { FlightDataService } from '../../services/flight-data.service'
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  seats = this.flightData.flight.seats
 
   constructor(public flightData: FlightDataService) { }
+  @Output() toggleSeatEvent = new EventEmitter();
 
-  // toggleCabin(){
-  //   this.flightData.flight.luggage.cabin = !this.flightData.flight.luggage.cabin
-  // }
-  // toggleCheckInSmall(){
-  //   this.flightData.flight.luggage.checkInSmall = !this.flightData.flight.luggage.checkInSmall
-  //  }
-  //  toggleCheckInBig(){
-  //   this.flightData.flight.luggage.checkInBig = !this.flightData.flight.luggage.checkInBig
-  //  }
-   
+  removeSeat($event:any) {
+    this.toggleSeatEvent.emit($event);
+  }
 
   ngOnInit(): void {
   }
