@@ -1,0 +1,54 @@
+<section class="ticket">
+  <div class="header">
+    <h1>Bogus Flights</h1>
+    <h2>Boarding Pass</h2>
+  </div>
+  <div class="divider"></div>
+  <div class="details">
+    <div class="codes">
+      <div>
+        {{ departure.code }}<small>{{ departure.city }}</small>
+      </div>
+      <mat-icon>flight_takeoff</mat-icon>
+      <div>
+        {{ arrival.code }}<small>{{ arrival.city }}</small>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Name of passenger:</h3>
+      <h2>{{ firstName | uppercase }} {{ lastName | uppercase }}</h2>
+    </div>
+    <div class="row">
+      <h3>Date of flight:</h3>
+      <h2>{{ dateOfFlight | date | uppercase }}</h2>
+    </div>
+    <div class="row">
+      <h3>Booked seats:</h3>
+      <h2>
+        <span *ngFor="let seat of seats">{{ seat }}, </span>
+      </h2>
+    </div>
+    <div class="row">
+      <h3>Luggage:</h3>
+      <h2>
+        <span *ngIf="luggage.cabin">CABIN, </span>
+        <span *ngIf="luggage.checkInSmall">CHECK-IN 10KG, </span>
+        <span *ngIf="luggage.checkInBig">CHECK-IN 20KG, </span>
+      </h2>
+    </div>
+    <div class="row">
+      <h3>Additions:</h3>
+      <h2>
+        <span *ngIf="additions.priority">PRIORITY BOARDING, </span>
+        <span *ngIf="additions.VIP">VIP ACCESS, </span>
+        <span *ngIf="additions.instantCheckIn">INSTANT CHECK-IN, </span>
+      </h2>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="footer">
+    <div class="hologram"><mat-icon>public</mat-icon></div>
+    <small>Keep your boarding pass on you at all times!</small>
+    <img [src]="qrApi" alt="QR Code" />
+  </div>
+</section>

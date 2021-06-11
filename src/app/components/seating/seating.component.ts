@@ -13,6 +13,7 @@ export class SeatingComponent implements OnInit {
   
   constructor(public flightData: FlightDataService) { }
   
+  ngAfterViewInit(){this.highlightSelected()}
   ngOnInit(): void {
     switch (this.flightData.flight.distance){
       case 'local':
@@ -55,6 +56,5 @@ export class SeatingComponent implements OnInit {
     if(this.numOfTickets <= this.seats.length){
       return true
     } return false
-
   }
 }

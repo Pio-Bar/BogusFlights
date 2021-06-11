@@ -1,7 +1,7 @@
 <mat-card>
   <h1>Personalize your flight</h1>
   <div class="col">
-    <h3><mat-icon>luggage</mat-icon>please select your luggage options</h3>
+    <h3><mat-icon>luggage</mat-icon>Select your luggage options</h3>
     <section>
       <p>
         <mat-checkbox
@@ -61,15 +61,24 @@
   <div class="col">
     <h1></h1>
     <h3>
-      <mat-icon>airline_seat_recline_normal</mat-icon>Your selected seats are:
+      <mat-icon>airline_seat_recline_normal</mat-icon>
+      Select your seats.
     </h3>
     <section>
+      <p
+        [ngClass]="seats.length == numOfTickets ? 'success' : 'error'"
+        *ngIf="displayError"
+      >
+        You have selected {{ seats.length }} out of {{ numOfTickets }} seats.
+      </p>
       <mat-chip-list>
         <mat-chip (click)="removeSeat($event)" *ngFor="let seat of seats">
           {{ seat }}</mat-chip
         >
       </mat-chip-list>
     </section>
-    <button mat-raised-button color="primary">Confirm</button>
+    <button (click)="checkNumOfSeats()" mat-raised-button color="primary">
+      Confirm
+    </button>
   </div>
 </mat-card>

@@ -8,8 +8,8 @@ export class UserDataService {
 
   loggedInUser = {
     email: '',
-    firstName: '',
-    lastName: '',
+    firstName: 'John',
+    lastName: 'Doe',
   }
 
   constructor() { }

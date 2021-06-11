@@ -1,0 +1,41 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  app-thanks {
+    max-width: 450px;
+  }
+  app-ticket {
+    max-width: 470px;
+    padding: 10px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 855px) {
+  .container {
+    app-thanks {
+      max-width: none;
+      width: 100%;
+    }
+    app-ticket {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 359px) {
+  .container {
+    padding: 5px;
+    app-thanks {
+      max-width: none;
+      width: 100%;
+    }
+    app-ticket {
+      padding: 0;
+    }
+  }
+}

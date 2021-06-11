@@ -1,0 +1,111 @@
+.ticket {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: (1px 2px 4px #0005);
+  border-radius: 5px;
+  transform: rotate(5deg);
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #3f51b5;
+    border-radius: 5px 5px 0 0;
+    h1,
+    h2 {
+      display: inline-block;
+      color: white;
+    }
+  }
+  .divider {
+    position: relative;
+    border-bottom: 2px dashed #0004;
+    &::after,
+    &::before {
+      content: "";
+      background-color: white;
+      box-shadow: inset 0px 2px 4px #0005;
+      padding: 10px;
+      position: absolute;
+      border-radius: 50%;
+      bottom: -10px;
+      left: -10px;
+      clip-path: inset(0 0px 0 10px);
+    }
+    &::before {
+      box-shadow: none;
+      clip-path: none;
+    }
+  }
+  .details {
+    .codes {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 2px solid #757575aa;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      div,
+      mat-icon {
+        text-align: center;
+        color: #757575;
+        margin: 2rem 0 0 0;
+        font-size: 3em;
+        font-weight: 500;
+      }
+      small {
+        padding: 8px;
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+    .row {
+      padding: 10px 2rem;
+      h3 {
+        line-height: 50%;
+        margin: 0;
+        color: #3f51b5;
+      }
+      h2 {
+        margin: 0;
+      }
+    }
+  }
+  .footer {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  small {
+    font-size: 10px;
+    padding: 0 10px;
+  }
+  .hologram {
+    min-width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    position: relative;
+    background: rgb(150, 155, 180);
+    background: linear-gradient(
+      45deg,
+      rgba(150, 155, 180, 1) 0%,
+      rgba(227, 227, 133, 1) 33%,
+      rgba(231, 203, 83, 1) 50%,
+      rgba(210, 132, 132, 1) 75%,
+      rgba(147, 70, 214, 1) 100%
+    );
+    mat-icon {
+      top: 20%;
+      left: 18%;
+      position: absolute;
+      font-size: 50px;
+      color: #0005;
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .ticket {
+    transform: none;
+  }
+}

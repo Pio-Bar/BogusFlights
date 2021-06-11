@@ -28,7 +28,10 @@ import { DisplayComponent } from './components/display/display.component';
 import { LoginComponent } from './components/login/login.component';
 import { DialogLogin } from './components/login/login.component';
 import { SeatingComponent } from './components/seating/seating.component';
-import { DetailsComponent } from './components/details/details.component'
+import { DetailsComponent } from './components/details/details.component';
+import { TicketComponent } from './components/ticket/ticket.component';
+import { ThanksComponent } from './components/thanks/thanks.component';
+import { SummaryComponent } from './components/summary/summary.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { DetailsComponent } from './components/details/details.component'
     DialogLogin,
     SeatingComponent,
     DetailsComponent,
+    TicketComponent,
+    ThanksComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,
