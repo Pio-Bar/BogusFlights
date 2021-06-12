@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class FlightDataService {
   flight = {
-    departure: {code: 'AAA', city:'chicago', country: '', region: ''},
-    arrival: {code: 'AAA', city:'toronto', country: '', region: ''},
+    departure: {code: 'AAA', city:'Chicago', country: '', region: ''},
+    arrival: {code: 'AAA', city:'Toronto', country: '', region: ''},
     distance: 'local',
     date: '',
     class: '',

@@ -1,0 +1,47 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  section {
+    h1 {
+      padding-top: 10px;
+      color: #fff;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: #fffa;
+      }
+    }
+    ul {
+      padding-left: 2em;
+    }
+    li::marker {
+      color: white;
+    }
+  }
+  .weather {
+    display: flex;
+    align-items: center;
+    h1 {
+      margin: 0;
+    }
+  }
+}
+.signature {
+  display: block;
+  text-align: center;
+  a {
+    color: #fff;
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    display: none;
+  }
+}

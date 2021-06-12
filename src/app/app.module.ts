@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; 
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 //Material imports!
 import {MatInputModule} from '@angular/material/input';
@@ -19,9 +22,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { DisplayComponent } from './components/display/display.component';
@@ -31,7 +32,8 @@ import { SeatingComponent } from './components/seating/seating.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { ThanksComponent } from './components/thanks/thanks.component';
-import { SummaryComponent } from './components/summary/summary.component'
+import { SummaryComponent } from './components/summary/summary.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -46,12 +48,14 @@ import { SummaryComponent } from './components/summary/summary.component'
     TicketComponent,
     ThanksComponent,
     SummaryComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
@@ -71,7 +75,6 @@ import { SummaryComponent } from './components/summary/summary.component'
     MatDatepickerModule,
     MatNativeDateModule,
     LoginComponent,
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   bootstrap: [AppComponent]
 })

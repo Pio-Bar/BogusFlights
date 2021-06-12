@@ -1,5 +1,15 @@
 <section class="thanks">
   <h1>Thank you for choosing Bogus Flights!</h1>
-  <h2>Enjoy your trip to (DESTINATION)</h2>
-  <p>The weather will be 20C and sunny</p>
+  <div *ngIf="arrivalWeather">
+    <h2>
+      The current weather in {{ arrivalCity }} is
+      {{ arrivalWeather.main.temp | number: "1.0-1" }}&deg;C
+    </h2>
+    <img
+      src="http://openweathermap.org/img/wn/{{
+        arrivalWeather?.weather[0].icon
+      }}@2x.png"
+      alt="Weather Icon"
+    />
+  </div>
 </section>

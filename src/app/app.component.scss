@@ -1,0 +1,13 @@
+main {
+  position: relative;
+  min-height: 100vh;
+}
+section {
+  padding-bottom: 11rem;
+}
+app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: #3f51b5;
+}
