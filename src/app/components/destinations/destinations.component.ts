@@ -45,7 +45,6 @@ export class DestinationsComponent implements OnInit {
 
   // Checks if user is logged in if not opens popup
   isUserLoggedIn(){
-    console.log(this.userData.userIsLoggedIn)
     if(!this.userData.userIsLoggedIn){
     this.login.openDialog()
     } else {

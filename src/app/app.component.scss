@@ -3,11 +3,21 @@ main {
   min-height: 100vh;
 }
 section {
-  padding-bottom: 11rem;
+  padding-bottom: 11.5rem;
 }
 app-footer {
   position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   background-color: #3f51b5;
+}
+app-nav-bar {
+  width: 100%;
+  background-color: #3f51b5;
+}
+
+@media (max-width: 750px) {
+  section {
+    padding-bottom: 5rem;
+  }
 }

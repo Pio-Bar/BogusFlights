@@ -4,17 +4,15 @@
   padding: 0 16px;
 }
 
-mat- {
-  &form-field {
-    padding-top: 1em;
-    font-size: 1.5em;
-    width: calc(100% / 3);
-  }
+mat-form-field {
+  padding-top: 1em;
+  font-size: 1.5em;
+  width: calc(100% / 3);
 }
 .main-photo {
   img {
     display: block;
-    width: 100vw;
+    width: 100%;
     height: 360px;
     object-fit: cover;
     margin: 0;
@@ -76,6 +74,9 @@ form {
   .mat-form-field,
   form button {
     width: 100%;
+  }
+  button {
+    margin-top: 1em;
   }
   .main-photo {
     h2 {

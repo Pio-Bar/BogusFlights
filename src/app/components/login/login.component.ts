@@ -32,6 +32,7 @@ export class DialogLogin {
   hide = true;
   showRegistration = false;
   wrongPassword = false;
+  alreadyRegistered = false;
   usersDB: any
   firstNameInput = '';
   lastNameInput = '';
@@ -59,7 +60,6 @@ export class DialogLogin {
     for(let user of usersDB){
       if(this.emailInput === user.email){
         if(this.passwordInput === user.password){
-          console.log('Logged in!!!')
           this.userData.userIsLoggedIn = true;
           this.userData.loggedInUser.firstName = user.firstName;
           this.userData.loggedInUser.lastName = user.lastName;
@@ -71,14 +71,14 @@ export class DialogLogin {
       }
     }
     this.wrongPassword = true
-    console.log('Invalid Email or Password!')
   }
 
   //Adds a new user to DB
   register(){
     for(let user of usersDB){
       if (this.emailInput === user.email){
-       return console.log('user already has an account!')
+        this.alreadyRegistered = true;
+       return
       }
     }
     usersDB.push(
@@ -98,6 +98,7 @@ export class DialogLogin {
   toggleRegistration(){
     this.showRegistration = !this.showRegistration
     this.wrongPassword = false;
+    this.alreadyRegistered = false;
     this.control.reset('')
   }
 }

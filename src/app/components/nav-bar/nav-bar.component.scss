@@ -1,16 +1,41 @@
-mat- {
-  &toolbar {
-    // max-width: 1200px;
-    // margin: auto;
-  }
-}
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1.5rem;
 }
 .logo {
-  margin-right: 100px;
+  color: #fff;
+  text-decoration: none;
+  span {
+    margin-left: 2rem;
+  }
 }
-.example-spacer {
-  flex: 1 1 auto;
+.login {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #fffa;
+  }
+  span {
+    margin-right: 2rem;
+  }
+}
+mat-icon {
+  position: absolute;
+  top: 10%;
+  padding: 0 5px;
+}
+
+.login {
+  margin-left: 20px;
+}
+
+@media (max-width: 440px) {
+  .container {
+    font-size: 1em;
+  }
 }

@@ -1,6 +1,15 @@
 <mat-toolbar color="primary">
-  <a class="logo">
-    <mat-icon>flight_land</mat-icon>
-    <span>Bogus Flights</span>
-  </a>
+  <nav class="container">
+    <a routerLink="/" class="logo">
+      <mat-icon class="logo-icon">flight_land</mat-icon>
+      <span>Bogus Flights</span>
+    </a>
+    <a *ngIf="!userData.userIsLoggedIn" class="login" (click)="openLogin()">
+      <span>Log in <mat-icon class="login-icon">login</mat-icon></span>
+    </a>
+    <a *ngIf="userData.userIsLoggedIn" class="login" (click)="logOut()">
+      <span>Log out <mat-icon class="login-icon">logout</mat-icon></span>
+    </a>
+  </nav>
 </mat-toolbar>
+<app-login></app-login>

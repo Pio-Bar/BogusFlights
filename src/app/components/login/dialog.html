@@ -103,6 +103,7 @@
   </form>
 
   <p class="alert" *ngIf="wrongPassword">Invalid email or password!</p>
+  <p class="alert" *ngIf="alreadyRegistered">Email already registered!</p>
 
   <p *ngIf="!showRegistration">
     Are you a new user?
