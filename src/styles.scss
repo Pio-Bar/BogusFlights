@@ -5,3 +5,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.mat-tab-label {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 0 50px;
+}
+@media (max-width: 815px) {
+  .mat-tab-label {
+    margin: 0 5px;
+  }
+}

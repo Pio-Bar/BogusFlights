@@ -1,9 +1,6 @@
-<div class="main-photo">
-  <h1>Travel with Bogus Flights</h1>
-  <h2>and enjoy the cheapest one-way tickets</h2>
-  <img src="../../../assets/terminal.jpg" alt="terminal" />
-</div>
+<app-hero-img></app-hero-img>
 <div class="container">
+  <h1>Your journey begins here:</h1>
   <form #flightForm="ngForm">
     <mat-form-field>
       <mat-label>Departure airport</mat-label>
@@ -12,6 +9,7 @@
         color="primary"
         name="departure"
         required
+        cy="departure"
         ><div *ngFor="let airport of airports">
           <mat-option [value]="airport" *ngIf="!(airport === arrival)">
             {{ airport.city }}
@@ -82,4 +80,5 @@
     </button>
   </form>
 </div>
+<app-countries></app-countries>
 <app-login></app-login>

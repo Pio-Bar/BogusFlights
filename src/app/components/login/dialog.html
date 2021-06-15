@@ -5,7 +5,11 @@
   <p *ngIf="showRegistration">Welcome, create a new account to continue.</p>
 </div>
 <div mat-dialog-content>
-  <form #userForm="ngForm" (keydown.enter)="logIn()" id="userForm">
+  <form
+    #userForm="ngForm"
+    (keydown.enter)="showRegistration && userForm.form.valid && !alreadyRegistered ? register() : logIn()"
+    id="userForm"
+  >
     <mat-form-field *ngIf="showRegistration">
       <mat-label>Enter your first name</mat-label>
       <input
@@ -47,6 +51,7 @@
         matInput
         type="email"
         name="email"
+        cy="email"
         required
         email
       />
@@ -66,6 +71,7 @@
         [type]="hide ? 'password' : 'text'"
         name="password"
         required
+        cy="password"
         minlength="6"
         maxlength="16"
       />

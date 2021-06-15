@@ -3,7 +3,7 @@ main {
   min-height: 100vh;
 }
 section {
-  padding-bottom: 11.5rem;
+  padding-bottom: 152px;
 }
 app-footer {
   position: absolute;
@@ -18,6 +18,6 @@ app-nav-bar {
 
 @media (max-width: 750px) {
   section {
-    padding-bottom: 5rem;
+    padding-bottom: 20px;
   }
 }

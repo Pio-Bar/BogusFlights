@@ -16,7 +16,7 @@ export class ThanksComponent implements OnInit {
   luggageCost= this.calculateLuggageCost()
   additionsCost = this.calculateAdditionsCost()
   ticketTotal = this.calculateTotal()
-  priceDisplay = this.ticketTotal
+  priceDisplay = this.ticketTotal * this.numOfTickets
   currencyInput = 'USD';
   exchangeRates:any
 
@@ -60,7 +60,7 @@ export class ThanksComponent implements OnInit {
 
     calculateTotal(){
       let cost = this.flightCost + this.luggageCost + this.additionsCost;
-      return cost * this.numOfTickets
+      return cost
     }
 
     exchangePrice(){

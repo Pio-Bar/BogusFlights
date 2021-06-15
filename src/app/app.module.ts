@@ -23,8 +23,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 
-
+//Components
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
@@ -37,7 +38,9 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { ThanksComponent } from './components/thanks/thanks.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CountriesComponent } from './components/countries/countries.component';
+import { HeroImgComponent } from './components/hero-img/hero-img.component'
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SummaryComponent,
     FooterComponent,
     PageNotFoundComponent,
+    CountriesComponent,
+    HeroImgComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatCheckboxModule,
     MatChipsModule,
     MatTableModule,
+    MatTabsModule,
   ],
   providers: [
     MatDatepickerModule,
