@@ -19,4 +19,4 @@ export class APIService {
   getExchangeRates(){
     return this.http.get('https://v6.exchangerate-api.com/v6/6f7a6339ec22c17f75391f63/latest/USD/')
   }
-}us
+}
