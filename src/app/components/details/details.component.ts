@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DetailsComponent implements OnInit {
   seats = this.flightData.flight.seats;
   numOfTickets = this.flightData.flight.tickets;
+  ticketType = this.flightData.flight.class
   displayError = false;
 
   constructor(

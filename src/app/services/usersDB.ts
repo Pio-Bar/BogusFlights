@@ -14,8 +14,8 @@ export const usersDB = [
   {
     email: 'admin3@email.com',
     password: 'admin3',
-    firstName: 'Robert',
-    lastName: 'Makiełkowicz',
+    firstName: 'Jonathan',
+    lastName: 'Deer',
   },
 ]
     

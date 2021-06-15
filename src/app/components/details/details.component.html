@@ -62,14 +62,16 @@
     <h1></h1>
     <h3>
       <mat-icon>airline_seat_recline_normal</mat-icon>
-      Select your seats.
+      <span *ngIf="!seats.length">Select your seats.</span>
+      <span *ngIf="seats.length">Selected seats:</span>
     </h3>
-    <section>
+    <section class="chipsSection">
       <p
         [ngClass]="seats.length == numOfTickets ? 'success' : 'error'"
         *ngIf="displayError"
       >
-        You have selected {{ seats.length }} out of {{ numOfTickets }} seats.
+        You have selected {{ seats.length }} out of {{ numOfTickets }}
+        {{ ticketType }} seats.
       </p>
       <mat-chip-list>
         <mat-chip (click)="removeSeat($event)" *ngFor="let seat of seats">

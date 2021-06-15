@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-//Material imports!
+import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+
+//Material imports
 import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button'; 
@@ -20,6 +22,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { AppComponent } from './app.component';
@@ -33,7 +36,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { ThanksComponent } from './components/thanks/thanks.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -49,6 +53,7 @@ import { FooterComponent } from './components/footer/footer.component'
     ThanksComponent,
     SummaryComponent,
     FooterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,11 +75,13 @@ import { FooterComponent } from './components/footer/footer.component'
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatTableModule,
   ],
   providers: [
     MatDatepickerModule,
     MatNativeDateModule,
     LoginComponent,
+    IsLoggedInGuard,
   ],
   bootstrap: [AppComponent]
 })

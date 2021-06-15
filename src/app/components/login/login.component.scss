@@ -1,6 +1,6 @@
 mat-form-field {
   display: block;
-  width: 100%px;
+  width: 100%;
   font-size: 18px;
 }
 div:first-of-type {
@@ -25,4 +25,15 @@ a {
   display: block;
   text-align: center;
   color: #f44436 !important;
+}
+
+@media (max-width: 440px) {
+  div:first-of-type {
+    padding: 0.5em;
+    font-size: 1em;
+    h1 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+  }
 }

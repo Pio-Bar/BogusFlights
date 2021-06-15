@@ -1,7 +1,7 @@
 .thanks {
   margin-top: 2rem;
   h1 {
-    font-size: 42px;
+    font-size: 2.5rem;
     font-weight: 500;
     line-height: 1em;
   }
@@ -10,12 +10,55 @@
     margin: 0;
   }
 }
-
-div {
+.weather {
   display: flex;
   align-items: center;
   img {
     align-self: center;
     filter: drop-shadow(2px 2px 2px #000a);
+  }
+}
+.total {
+  position: relative;
+  .main-list {
+    padding-left: 5px;
+  }
+  li {
+    list-style-type: none;
+    &:nth-child(2) {
+      background-color: #3f51b511;
+    }
+  }
+  .sum {
+    font-weight: 500;
+    font-size: 1.2em;
+    padding-top: 2em;
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
+  span {
+    position: absolute;
+    right: 20%;
+  }
+  h1 {
+    display: inline-block;
+    margin: 1em 5px 0 0;
+    font-size: 2em;
+  }
+  mat-form-field {
+    display: inline block;
+    width: 70px;
+    font-size: 1.2em;
+  }
+  .price-display {
+    text-align: center;
+  }
+}
+@media (max-width: 440px) {
+  .total {
+    h1 {
+      font-size: 1.4em;
+    }
   }
 }

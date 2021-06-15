@@ -8,22 +8,30 @@ import { FlightDataService } from '../../services/flight-data.service';
 })
 export class SeatingComponent implements OnInit {
   numOfRows!:number[];
+  numOfPremiumRows!:number[];
+
   seats = this.flightData.flight.seats;
   numOfTickets = this.flightData.flight.tickets;
+  isPremium:any;
   
   constructor(public flightData: FlightDataService) { }
   
   ngAfterViewInit(){this.highlightSelected()}
   ngOnInit(): void {
+    this.isPremium = this.flightData.flight.class === 'premium'? true:false
+
     switch (this.flightData.flight.distance){
       case 'local':
-        this.numOfRows = this.numToArray(12);
+        this.numOfRows = this.numToArray(8);
+        this.numOfPremiumRows = this.numToArray(4);
         break
       case 'long':
-        this.numOfRows = this.numToArray(18);
+        this.numOfRows = this.numToArray(11);
+        this.numOfPremiumRows = this.numToArray(7);
         break
       case 'continental':
-        this.numOfRows = this.numToArray(28);
+        this.numOfRows = this.numToArray(19);
+        this.numOfPremiumRows = this.numToArray(9);
     }
   }
    //Converts a number to an array eg.(5 = [1,2,3,4,5])

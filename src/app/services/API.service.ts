@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService {
+export class APIService {
 
   constructor(private http: HttpClient) { }
 
@@ -16,4 +16,7 @@ export class WeatherService {
     return this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=4cf1f3252ace20bbf27939b7c2c38395&units=metric`)
   }
 
+  getExchangeRates(){
+    return this.http.get('https://v6.exchangerate-api.com/v6/6f7a6339ec22c17f75391f63/latest/USD/')
+  }
 }

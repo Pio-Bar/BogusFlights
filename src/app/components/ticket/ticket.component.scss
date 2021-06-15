@@ -13,7 +13,7 @@
     h1,
     h2 {
       display: inline-block;
-      color: white;
+      color: #fff;
     }
   }
   .divider {
@@ -22,7 +22,7 @@
     &::after,
     &::before {
       content: "";
-      background-color: white;
+      background-color: #fff;
       box-shadow: inset 0px 2px 4px #0005;
       padding: 10px;
       position: absolute;
@@ -32,11 +32,13 @@
       clip-path: inset(0 0px 0 10px);
     }
     &::before {
+      background-color: #fff;
       box-shadow: none;
       clip-path: none;
     }
   }
   .details {
+    overflow: hidden;
     .codes {
       display: flex;
       justify-content: space-around;
@@ -104,8 +106,9 @@
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 520px) {
   .ticket {
     transform: none;
+    max-width: 95vw;
   }
 }

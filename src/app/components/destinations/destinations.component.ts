@@ -54,5 +54,9 @@ export class DestinationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.flightData.flight.tickets = 1
+    this.flightData.flight.seats = []
+    this.flightData.flight.luggage = {cabin: false, checkInSmall: false, checkInBig: false,}
+    this.flightData.flight.additions = {priority: false, VIP: false, instantCheckIn: false,}
   }
 }

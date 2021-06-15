@@ -34,6 +34,10 @@
         <span *ngIf="luggage.cabin">CABIN, </span>
         <span *ngIf="luggage.checkInSmall">CHECK-IN 10KG, </span>
         <span *ngIf="luggage.checkInBig">CHECK-IN 20KG, </span>
+        <span
+          *ngIf="!luggage.cabin && !luggage.checkInSmall && !luggage.checkInBig"
+          >NONE</span
+        >
       </h2>
     </div>
     <div class="row">
@@ -42,6 +46,12 @@
         <span *ngIf="additions.priority">PRIORITY BOARDING, </span>
         <span *ngIf="additions.VIP">VIP ACCESS, </span>
         <span *ngIf="additions.instantCheckIn">INSTANT CHECK-IN, </span>
+        <span
+          *ngIf="
+            !additions.priority && !additions.VIP && !additions.instantCheckIn
+          "
+          >NONE</span
+        >
       </h2>
     </div>
   </div>

@@ -67,6 +67,15 @@ section {
           margin-right: 70px;
         }
       }
+      .premium {
+        background-color: #98c1d9aa;
+        &::after {
+          background-color: #98c1d9aa;
+        }
+        &::before {
+          background-color: #98c1d9aa;
+        }
+      }
       .selected {
         color: #fff;
         background-color: #3f51b5;

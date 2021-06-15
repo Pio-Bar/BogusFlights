@@ -17,8 +17,15 @@
       </ul>
     </section>
     <section class="weather" *ngIf="localWeather">
-      <h1>{{ localWeather.name }}&nbsp;</h1>
-      <h1>{{ localWeather.main.temp | number: "1.0-1" }}&deg;C</h1>
+      <div>
+        <h1>
+          {{ localWeather.name }}&nbsp;<span
+            >{{ localWeather.main.temp | number: "1.0-1" }}&deg;C</span
+          >
+        </h1>
+        <h3>{{ date | date: "fullDate" }} {{ date | date: "shortTime" }}</h3>
+      </div>
+
       <img
         src="http://openweathermap.org/img/wn/{{
           localWeather.weather[0].icon
@@ -26,6 +33,7 @@
         alt="Weather Icon"
       />
     </section>
+    <div *ngIf="!localWeather" class="spacer"></div>
   </div>
   <small class="signature"
     ><a href="https://github.com/PioBarGit"
