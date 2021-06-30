@@ -24,7 +24,7 @@ If you do not wish to make an account use this credentials instead
 
 ## Used APIs
 
-- [ExchangeRate-api](https://www.exchangerate-api.com/)\
+- [ExchangeRate-api](https://www.exchangerate-api.com/)
 - [OpenWeather](https://openweathermap.org/api)
 
 ## End-to-end tests
