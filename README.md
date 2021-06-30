@@ -6,10 +6,26 @@ If you do not wish to make an account use this credentials instead
 > **Email: admin1@email.com**\
 > **Password: admin1**
 
+## Project's scope
+
+- Main screen, allowing the user to choose flight destination, number of tickets, date.
+- Login/Register popup.
+- Weather forecast using user's location.
+- Flight details such as: seating, luggage, additional preferences.
+- Summary screen, showing the price of tickets and current weather for user's destination.
+- The app is responsive and aesthetically pleasing.
+
+## Used techologies
+
+- [Angular 12.0.1](https://angular.io/)
+- [Angular Material 12.0.2](https://material.angular.io/)
+- [Cypress 7.5.0](https://www.cypress.io/)
+
+
 ## Used APIs
 
-[ExchangeRate-api](https://www.exchangerate-api.com/)\
-[OpenWeather](https://openweathermap.org/api)
+- [ExchangeRate-api](https://www.exchangerate-api.com/)\
+- [OpenWeather](https://openweathermap.org/api)
 
 ## End-to-end tests
 
